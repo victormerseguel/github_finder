@@ -5,14 +5,17 @@ import User from "../components/User";
 import Error from "../components/Error";
 import Loader from "../components/Loader";
 
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../context/UserContext";
 
 const Home = () => {
   const [user, setUser] = useState<UserProps | null>(null);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const loadUser = async (userName: string) => {
+  const { search, setSearch, user: userName } = useContext(UserContext);
+
+  const loadUser = async (userName: string | null) => {
     setError(false);
     setUser(null);
     setIsLoading(true);
@@ -40,7 +43,14 @@ const Home = () => {
     };
 
     setUser(userData);
+    setSearch(false);
   };
+
+  useEffect(() => {
+    if (search) {
+      loadUser(userName);
+    }
+  }, [search]);
 
   return (
     <div>

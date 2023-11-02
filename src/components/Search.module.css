@@ -17,6 +17,7 @@
 .search_container {
   display: flex;
   gap: 0.5rem;
+  justify-content: center;
 }
 
 .search_container input,
@@ -27,7 +28,44 @@
   color: #2b3566;
 }
 
+.search_container input {
+  width: 210px;
+  padding-right: 30px;
+}
+
 .search_container button {
   background-color: #0e1129;
   cursor: pointer;
+}
+
+.input_container {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.input_container button {
+  position: absolute;
+  right: 0px;
+  background: transparent;
+  height: 90%;
+  min-width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input_container button svg {
+  fill: transparent;
+  cursor: pointer;
+}
+
+.input_container:hover button svg {
+  fill: #2b3566;
+}
+
+.input_container:hover button {
+  background-color: #fff;
 }
