@@ -11,7 +11,7 @@ type SearchProps = {
 
 const Search = ({ loadUser }: SearchProps) => {
   // const [userName, setUserName] = useState("");
-  const { user, setUser, setSearch } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
